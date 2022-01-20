@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Preenchimento Automático - CEP</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!-- partial:index.partial.html -->
+    <div id="app">
+      <div class="container">
+        <div class="row show-grid">
+          <form class="col-md-12" v-on:submit="registrar">
+            <h2>Preenchimento Automático via CEP</h2>
+            <div class="row">
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label for="inputCep">CEP</label>
+                  <input
+                    class="form-control"
+                    id="inputCep"
+                    type="text"
+                    v-model="cep"
+                    v-on:keyup="buscar"
+                  />
+                </div>
+              </div>
+              <div class="col-md-3">
+                <span class="text-danger" v-show="naoLocalizado"
+                  ><strong>* CEP não encontrado</strong></span
+                >
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-5">
+                <div class="form-group">
+                  <label for="inputLogradouro">Logradouro</label>
+                  <input
+                    class="form-control"
+                    id="inputLogradouro"
+                    type="text"
+                    v-model="endereco.logradouro"
+                  />
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div class="form-group">
+                  <label for="inputNumero">Número</label>
+                  <input class="form-control" id="inputNumero" type="number" />
+                </div>
+              </div>
+              <div class="col-md-5">
+                <div class="form-group">
+                  <label for="inputComplemento">Complemento</label>
+                  <input
+                    class="form-control"
+                    id="inputComplemento"
+                    type="text"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-5">
+                <div class="form-group">
+                  <label for="inputBairro">Bairro</label>
+                  <input
+                    class="form-control"
+                    id="inputBairro"
+                    type="text"
+                    v-model="endereco.bairro"
+                  />
+                </div>
+              </div>
+              <div class="col-md-5">
+                <div class="form-group">
+                  <label for="inputCidade">Cidade</label>
+                  <input
+                    class="form-control"
+                    id="inputCidade"
+                    type="text"
+                    v-model="endereco.localidade"
+                  />
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div class="form-group">
+                  <label for="inputEstado">Estado</label>
+                  <input
+                    class="form-control"
+                    id="inputEstado"
+                    type="text"
+                    v-model="endereco.uf"
+                    maxlength="2"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-10"></div>
+              <div class="col-md-2">
+                <div class="form-group">
+                  <input class="form-control" type="submit" value="Enviar" />
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- partial -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.9/jquery.mask.min.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>
